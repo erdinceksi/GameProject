@@ -9,16 +9,16 @@ namespace GameProject.Adapters
 {
     public class MernisServiceAdapter : IUserCheckService
     {
-        public bool CheckIfRealPerson(User user)
+        public bool CheckIfRealPerson(string FirstName, string LastName, string NationalityId, string YearOfBirth)
         {
             KPSPublicSoapClient client = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
             return client.TCKimlikNoDogrulaAsync(
                 new TCKimlikNoDogrulaRequest(
                     new TCKimlikNoDogrulaRequestBody(
-                        Convert.ToInt64(user.NationalityId),
-                        user.FirstName.ToUpper(),
-                        user.LastName.ToUpper(),
-                        Convert.ToInt16(user.YearOfBirth)))).
+                        Convert.ToInt64(NationalityId),
+                        FirstName.ToUpper(),
+                        LastName.ToUpper(),
+                        Convert.ToInt16(YearOfBirth)))).
                     Result.Body.TCKimlikNoDogrulaResult;
         }
     }

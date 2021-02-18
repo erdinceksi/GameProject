@@ -7,7 +7,7 @@ namespace GameProject.Abstract
 {
     public abstract class BaseUserManager : IUserService
     {
-        public virtual bool CheckUser(User member)
+        public virtual bool CheckUser(string FirstName, string LastName, string NationalityId, string YearOfBirth)
         {
             throw new NotImplementedException();
         }

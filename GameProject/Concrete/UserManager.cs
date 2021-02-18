@@ -15,9 +15,9 @@ namespace GameProject.Concrete
             _userCheckService = userCheckService;
         }
 
-        public override bool CheckUser(User user)
+        public override bool CheckUser(string FirstName, string LastName, string NationalityId, string YearOfBirth)
         {
-            if (_userCheckService.CheckIfRealPerson(user))
+            if (_userCheckService.CheckIfRealPerson(FirstName, LastName, NationalityId, YearOfBirth))
             {
                 return true;
             }

@@ -8,7 +8,7 @@ namespace GameProject.Concrete
 {
     public class UserCheckManager : IUserCheckService
     {
-        public bool CheckIfRealPerson(User member)
+        public bool CheckIfRealPerson(string FirstName, string LastName, string NationalityId, string YearOfBirth)
         {
             return true;
         }

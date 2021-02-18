@@ -92,10 +92,10 @@ namespace GameProject.Entities
                                 YearOfBirth = Console.ReadLine();
                             }
 
-                            User user = new User(Name, LastName, NationalityId, YearOfBirth);
-                            bool valid = baseUserManager.CheckUser(user);
+                            bool valid = baseUserManager.CheckUser(Name, LastName, NationalityId, YearOfBirth);
                             if (valid)
                             {
+                                User user = new User(Name, LastName, NationalityId, YearOfBirth);
                                 users.Add(user);
                                 Console.WriteLine("\nUser " + Name + " is Registered.");
                             }
@@ -129,8 +129,8 @@ namespace GameProject.Entities
                                 }
                                 else
                                 {
-                                    users = baseUserManager.Delete(users, UserIndex);
                                     Console.WriteLine("\nUser " + users[UserIndex].FirstName + " is deleted.");
+                                    users = baseUserManager.Delete(users, UserIndex);
                                 }
                             }
                             else
@@ -186,9 +186,7 @@ namespace GameProject.Entities
                                         YearOfBirth = Console.ReadLine();
                                     }
                                     Console.Clear();
-                                    User user = new User(Name, LastName, NationalityId, YearOfBirth);
-
-                                    bool valid = baseUserManager.CheckUser(user);
+                                    bool valid = baseUserManager.CheckUser(Name, LastName, NationalityId, YearOfBirth);
 
                                     if (valid)
                                     {
@@ -271,6 +269,7 @@ namespace GameProject.Entities
                                 }
                                 else
                                 {
+                                    
                                     Campaign campaign = new Campaign(CampaignId, CampaignName, Convert.ToDecimal(CampaignDiscountRate));
                                     campaigns.Add(campaign);
                                     Console.WriteLine("\nCampaign Is Registered.");
@@ -336,8 +335,6 @@ namespace GameProject.Entities
 
                                 if (CampaignIndex != -1)
                                 {
-                                    Console.Write("\nEnter Campaign Id: ");
-                                    CampaignId = Console.ReadLine();
                                     Console.Write("Enter Campaign Name: ");
                                     CampaignName = Console.ReadLine();
                                     Console.Write("Enter Discount Rate: ");

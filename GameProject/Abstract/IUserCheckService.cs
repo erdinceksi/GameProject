@@ -7,6 +7,6 @@ namespace GameProject.Abstract
 {
     public interface IUserCheckService
     {
-        bool CheckIfRealPerson(User member);
+        bool CheckIfRealPerson(string FirstName, string LastName, string NationalityId, string YearOfBirth);
     }
 }

@@ -7,7 +7,7 @@ namespace GameProject.Abstract
 {
     public interface IUserService
     {
-        bool CheckUser(User User);
+        bool CheckUser(string FirstName, string LastName, string NationalityId, string YearOfBirth);
         List<User> Delete(List<User> users, int UserIndex);
         void PrintUser(List<User> users);
         int GetUser(List<User> users, string UserId);
